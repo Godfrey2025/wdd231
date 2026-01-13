@@ -59,6 +59,10 @@ body {
     /* hidden by default on small screens */
 }
 
+.nav.open ul {
+    display: block;
+}
+
 .nav a {
     display: block;
     padding: 0.5rem 0.75rem;
@@ -172,4 +176,34 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: center;
+    /* horizontal centering */
+    align-items: center;
+    /* vertical centering */
+    flex-direction: column;
+    /* stack items vertically */
+    text-align: center;
+}
+
+.socials {
+    display: flex;
+    /* places items in a row */
+    justify-content: center;
+    /* centers them horizontally */
+    gap: 1rem;
+    /* space between links */
+}
+
+.socials a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.socials a:hover {
+    text-decoration: underline;
 }
