@@ -1,65 +1,67 @@
-// Course List Array (set `completed: true` for courses you've finished)
-const courses = [
-    { code: "WDD 130", title: "Web Fundamentals", credits: 2, type: "WDD", completed: true },
-    { code: "WDD 131", title: "Dynamic Web Fundamentals", credits: 2, type: "WDD", completed: true },
-    { code: "WDD 140", title: "Intro to Web Graphics", credits: 2, type: "WDD", completed: false },
-    { code: "WDD 231", title: "Frontend Web Development", credits: 3, type: "WDD", completed: false },
-    { code: "WDD 232", title: "Web Accessibility & UX", credits: 2, type: "WDD", completed: false },
-    { code: "CSE 110", title: "Programming Building Blocks", credits: 2, type: "CSE", completed: true },
-    { code: "CSE 111", title: "Programming with Functions", credits: 3, type: "CSE", completed: false },
-    { code: "CSE 120", title: "Data Structures Basics", credits: 3, type: "CSE", completed: false },
-    { code: "CSE 130", title: "Introduction to Databases", credits: 3, type: "CSE", completed: false }
-];
+// Courses rendering and filtering for WDD231
+document.addEventListener('DOMContentLoaded', () => {
+    const courseGrid = document.getElementById('course-grid');
+    const creditTotal = document.getElementById('credit-total');
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-const grid = document.getElementById("course-grid");
-const creditTotal = document.getElementById("credit-total");
-const filterButtons = document.querySelectorAll(".filter-btn");
+    // Sample course data — adjust as needed
+    const courses = [
+        { code: 'WDD101', title: 'Introduction to Web Development', credits: 3, category: 'wdd' },
+        { code: 'WDD201', title: 'Responsive Layouts & CSS', credits: 3, category: 'wdd' },
+        { code: 'WDD231', title: 'Advanced JavaScript', credits: 4, category: 'wdd' },
+        { code: 'CSE101', title: 'Intro to Computer Science', credits: 4, category: 'cse' },
+        { code: 'CSE202', title: 'Data Structures', credits: 3, category: 'cse' }
+    ];
 
-function formatCredits(n) {
-    return Number(n) || 0;
-}
+    function escapeHTML(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
 
-function createCard(course) {
-    const card = document.createElement("article");
-    card.className = `course-card ${course.completed ? "completed" : "incomplete"}`;
-    card.setAttribute("tabindex", "0");
-    card.innerHTML = `
-        <div class="course-title">
-            <strong>${course.code}</strong>
-            <span>${course.credits} cr</span>
-        </div>
-        <h3>${course.title}</h3>
-        <p class="course-meta">${course.type} • ${course.completed ? "Completed" : "In progress"}</p>
+    function renderCourseCard(course) {
+        return `
+      <article class="course-card" data-category="${escapeHTML(course.category)}">
+        <h3 class="course-title">${escapeHTML(course.title)}</h3>
+        <p class="course-meta">${escapeHTML(course.code)} • ${escapeHTML(String(course.credits))} credits</p>
+      </article>
     `;
-    return card;
-}
+    }
 
-function render(list) {
-    if (!grid) return;
-    grid.innerHTML = "";
-    list.forEach(course => grid.appendChild(createCard(course)));
+    function renderCourses(list) {
+        if (!courseGrid) return;
+        courseGrid.innerHTML = list.length ? list.map(renderCourseCard).join('') : '<p>No courses available.</p>';
+    }
 
-    // Sum credits of currently displayed list
-    const total = list.reduce((sum, c) => sum + formatCredits(c.credits), 0);
-    if (creditTotal) creditTotal.textContent = total;
-}
+    function updateCreditTotal(list) {
+        if (!creditTotal) return;
+        const total = list.reduce((sum, c) => sum + (Number(c.credits) || 0), 0);
+        creditTotal.textContent = total;
+    }
 
-function applyFilter(kind) {
-    let filtered = courses.slice();
-    if (kind === "wdd") filtered = courses.filter(c => c.type === "WDD");
-    else if (kind === "cse") filtered = courses.filter(c => c.type === "CSE");
-    render(filtered);
-}
+    function applyFilter(filter) {
+        const filtered = filter === 'all' ? courses : courses.filter(c => c.category === filter);
+        renderCourses(filtered);
+        updateCreditTotal(filtered);
+    }
 
-// Default render (all courses)
-render(courses);
-
-// Attach button listeners if present
-if (filterButtons && filterButtons.length) {
-    filterButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const kind = btn.getAttribute("data-filter");
-            applyFilter(kind);
+    // Wire up filter buttons
+    if (filterButtons && filterButtons.length) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter || 'all';
+                // active state for buttons (small visual helper)
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyFilter(filter);
+            });
         });
-    });
-}
+    }
+
+    // Initial render
+    renderCourses(courses);
+    updateCreditTotal(courses);
+});
