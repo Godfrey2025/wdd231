@@ -1,5 +1,5 @@
 :root {
-    --bg: #0f172a;
+    --bg: #0b1220;
     --surface: #111827;
     --text: #e5e7eb;
     --muted: #9ca3af;
@@ -7,6 +7,8 @@
     --success: #34d399;
     --warning: #f59e0b;
     --radius: 12px;
+    --bg-dark: #111827;
+    --bg-light: #ffffff;
 }
 
 * {
@@ -124,7 +126,7 @@ section ul {
 
 .filter-btn {
     background: rgba(34, 211, 238, 0.18);
-    color: var(--text);
+    color: var(--bg-dark);
     border: 1px solid rgba(34, 211, 238, 0.4);
     padding: 0.5rem 0.75rem;
     border-radius: 999px;
@@ -137,7 +139,7 @@ section ul {
 }
 
 .credits {
-    color: var(--muted);
+    color: #4b5563;
     font-weight: 600;
 }
 
@@ -173,4 +175,33 @@ section ul {
     gap: 1rem;
     /* spacing between links */
     margin-bottom: 0.75rem;
+}
+
+/* Removed duplicate :root to avoid conflicting variable values */
+
+/* Accessible tweaks:
+   - `.filter-btn` uses a dark text color for sufficient contrast against its light aqua background.
+   - `.credits` uses a darker muted gray to meet contrast on white backgrounds.
+*/
+
+/* Skip link visible on focus */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: var(--accent);
+    color: var(--bg-dark);
+    border-radius: 6px;
+    z-index: 1000;
 }
