@@ -4,12 +4,14 @@ const nav = document.getElementById("primary-nav");
 function closeNav() {
     if (!toggle || !nav) return;
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation");
     nav.classList.remove("open");
 }
 
 function openNav() {
     if (!toggle || !nav) return;
     toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation");
     nav.classList.add("open");
 }
 

@@ -15,6 +15,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css">
 
   <!-- Scripts -->
   <script src="scripts/navigation.js" defer></script>
@@ -23,9 +24,10 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <!-- Header -->
   <header class="site-header">
-    <a class="brand" href="#">
+    <a class="brand" href="./">
       <img src="images/logo.svg" alt="Site logo: GT" width="48" height="48">
       <span class="brand-name">Godfrey</span>
     </a>
@@ -34,7 +36,7 @@
       <span aria-hidden="true">&#9776;</span>
     </button>
 
-    <nav id="primary-nav" class="nav" aria-label="Primary">
+    <nav id="primary-nav" class="nav" aria-label="Primary navigation">
       <ul>
         <li><a href="./" aria-current="page">Home</a></li>
         <li><a href="chamber/">Chamber Project</a></li>
@@ -44,7 +46,7 @@
   </header>
 
   <!-- Main -->
-  <main>
+  <main id="main">
     <h1>Home</h1>
 
     <!-- About + Photo side by side -->
@@ -83,15 +85,14 @@
 
       <div id="course-grid" class="course-grid" aria-live="polite"></div>
     </section>
-    </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="socials">
-      <a href="https://linkedin.com/in/godfrey">LinkedIn</a>
-      <a href="https://github.com/godfrey">GitHub</a>
-      <a href="https://twitter.com/godfrey">Twitter</a>
+      <a href="https://linkedin.com/in/godfrey" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/godfrey" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://twitter.com/godfrey" target="_blank" rel="noopener noreferrer">Twitter</a>
     </div>
 
     <p>&copy; <span id="current-year"></span> • Godfrey • Zimbabwe</p>
