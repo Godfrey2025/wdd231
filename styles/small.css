@@ -177,12 +177,6 @@ section ul {
     margin-bottom: 0.75rem;
 }
 
-/* Removed duplicate :root to avoid conflicting variable values */
-
-/* Accessible tweaks:
-   - `.filter-btn` uses a dark text color for sufficient contrast against its light aqua background.
-   - `.credits` uses a darker muted gray to meet contrast on white backgrounds.
-*/
 
 /* Skip link visible on focus */
 .skip-link {
