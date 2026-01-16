@@ -3,7 +3,6 @@
     --surface: #111827;
     --text: #e5e7eb;
     --muted: #9ca3af;
-    --accent: #22d3ee;
     --success: #34d399;
     --warning: #f59e0b;
     --radius: 12px;
@@ -126,7 +125,7 @@ section ul {
 
 .filter-btn {
     background: rgba(34, 211, 238, 0.18);
-    color: var(--bg-dark);
+    color: #e5e7eb;
     border: 1px solid rgba(34, 211, 238, 0.4);
     padding: 0.5rem 0.75rem;
     border-radius: 999px;
@@ -136,10 +135,17 @@ section ul {
 
 .filter-btn:hover {
     background: rgba(34, 211, 238, 0.28);
+    color: #ffffff;
+}
+
+.filter-btn.active {
+    background: rgba(34, 211, 238, 0.4);
+    color: #ffffff;
+    border-color: rgba(34, 211, 238, 0.6);
 }
 
 .credits {
-    color: #4b5563;
+    color: #d1d5db;
     font-weight: 600;
 }
 
@@ -194,8 +200,8 @@ section ul {
     width: auto;
     height: auto;
     padding: 0.5rem 0.75rem;
-    background: var(--accent);
-    color: var(--bg-dark);
+    background: #22d3ee;
+    color: #0b1220;
     border-radius: 6px;
     z-index: 1000;
 }
