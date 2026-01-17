@@ -1,0 +1,13 @@
+/* larger.css (wider views ≥ 640px) */
+@media (min-width: 640px){
+  .brand-text h1{font-size:1.25rem}
+  .primary-nav{display:block;margin-left:auto}
+  .nav-toggle{display:none}
+
+  .cards.grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (min-width: 960px){
+  .cards.grid{grid-template-columns:repeat(3,1fr)}
+  .site-footer{grid-template-columns:1fr 1fr}
+}

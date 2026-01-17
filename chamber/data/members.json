@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "TechVision Solutions",
+    "address": "123 Innovation Drive, Epworth, Harare",
+    "phone": "+263 77 123 4567",
+    "website": "https://techvisionsolutions.zw",
+    "image": "images/members/techvision.jpg",
+    "level": 3,
+    "about": "Leading IT solutions provider offering cloud services, software development, and IT consulting.",
+    "established": 2015,
+    "employees": 45
+  },
+  {
+    "id": 2,
+    "name": "Harvest Logistics",
+    "address": "456 Commerce Street, Epworth, Harare",
+    "phone": "+263 77 234 5678",
+    "website": "https://harvestlogistics.zw",
+    "image": "images/members/harvest.jpg",
+    "level": 3,
+    "about": "Premier logistics and supply chain management company serving Zimbabwe and the region.",
+    "established": 2010,
+    "employees": 78
+  },
+  {
+    "id": 3,
+    "name": "Green Farming Cooperative",
+    "address": "789 Agricultural Lane, Epworth, Harare",
+    "phone": "+263 77 345 6789",
+    "website": "https://greenfarming.zw",
+    "image": "images/members/greenfarming.jpg",
+    "level": 2,
+    "about": "Sustainable agriculture cooperative promoting organic farming and food security in the community.",
+    "established": 2012,
+    "employees": 32
+  },
+  {
+    "id": 4,
+    "name": "Elite Financial Services",
+    "address": "321 Banking Plaza, Epworth, Harare",
+    "phone": "+263 77 456 7890",
+    "website": "https://elitefin.zw",
+    "image": "images/members/elite-financial.jpg",
+    "level": 3,
+    "about": "Full-service financial advisory and investment management for individuals and businesses.",
+    "established": 2008,
+    "employees": 62
+  },
+  {
+    "id": 5,
+    "name": "EpworthCare Medical Center",
+    "address": "654 Health Avenue, Epworth, Harare",
+    "phone": "+263 77 567 8901",
+    "website": "https://epworthcare.zw",
+    "image": "images/members/epworthcare.jpg",
+    "level": 2,
+    "about": "Modern medical facility providing comprehensive healthcare services to the Epworth community.",
+    "established": 2018,
+    "employees": 85
+  },
+  {
+    "id": 6,
+    "name": "Creative Design Hub",
+    "address": "987 Art Street, Epworth, Harare",
+    "phone": "+263 77 678 9012",
+    "website": "https://creativedesignhub.zw",
+    "image": "images/members/creative-hub.jpg",
+    "level": 1,
+    "about": "Boutique design studio specializing in branding, graphic design, and digital marketing.",
+    "established": 2019,
+    "employees": 12
+  },
+  {
+    "id": 7,
+    "name": "Epworth Manufacturing Ltd",
+    "address": "246 Industrial Park, Epworth, Harare",
+    "phone": "+263 77 789 0123",
+    "website": "https://epworthmfg.zw",
+    "image": "images/members/manufacturing.jpg",
+    "level": 2,
+    "about": "Industrial manufacturer producing quality consumer goods and export-ready products.",
+    "established": 2005,
+    "employees": 120
+  },
+  {
+    "id": 8,
+    "name": "Community Learning Institute",
+    "address": "135 Education Road, Epworth, Harare",
+    "phone": "+263 77 890 1234",
+    "website": "https://communitylearning.zw",
+    "image": "images/members/learning-institute.jpg",
+    "level": 1,
+    "about": "Educational institution providing vocational training and professional development programs.",
+    "established": 2016,
+    "employees": 28
+  }
+]

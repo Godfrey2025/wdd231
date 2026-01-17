@@ -1,21 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Basic Meta -->
-  <title>Epworth Chamber of Commerce Directory</title>
-  <meta name="description" content="Explore the Epworth Chamber of Commerce member directory. Connect with local businesses and professionals.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Epworth Chamber of Commerce — Member Directory</title>
+  <meta name="description" content="Discover businesses in Epworth, Harare. Browse the chamber directory by category, membership level, and contact details.">
   <meta name="author" content="Godfrey Tawanda Gova">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- Open Graph / Facebook Meta -->
-  <meta property="og:title" content="Epworth Chamber of Commerce Directory">
-  <meta property="og:description" content="Discover and connect with Epworth Chamber members.">
-  <meta property="og:image" content="https://yourgithubrepo.github.io/wdd231/images/chamber-og-image.png">
-  <meta property="og:url" content="https://yourgithubrepo.github.io/wdd231/directory.html">
+  <!-- Open Graph (Facebook) -->
+  <meta property="og:title" content="Epworth Chamber of Commerce — Member Directory">
+  <meta property="og:description" content="Browse verified local businesses, contact details, and membership levels.">
+  <meta property="og:image" content="https://username.github.io/wdd231/chamber/images/og-directory.jpg">
+  <meta property="og:url" content="https://username.github.io/wdd231/chamber/directory.html">
   <meta property="og:type" content="website">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css" media="screen and (min-width: 600px)">
+  <!-- JavaScript-->
+  <script src="scripts/directory.js" type="module" defer></script>
+
 </head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/logo.svg" alt="Epworth Chamber logo" width="48" height="48">
+      <div class="brand-text">
+        <h1>Epworth Chamber of Commerce</h1>
+        <p class="tagline">Connecting local businesses with opportunity</p>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="visually-hidden">Toggle navigation</span>
+      ☰
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a aria-current="page" href="directory.html">Directory</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="directory">
+    <section class="controls" aria-label="Directory view controls">
+      <div class="view-toggle" role="group" aria-label="Layout view">
+        <button id="gridBtn" class="active" aria-pressed="true">Grid</button>
+        <button id="listBtn" aria-pressed="false">List</button>
+      </div>
+
+      <div class="legend">
+        <span class="badge gold" aria-label="Gold membership">Gold</span>
+        <span class="badge silver" aria-label="Silver membership">Silver</span>
+        <span class="badge member" aria-label="Member">Member</span>
+      </div>
+    </section>
+
+    <section id="members" class="cards grid" aria-live="polite" aria-busy="true">
+      <!-- Cards injected by JS -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <section class="contact">
+      <h2 class="visually-hidden">Contact</h2>
+      <address>
+        <strong>Epworth Chamber of Commerce</strong><br>
+        12 Samora Machel Ave, Epworth, Harare<br>
+        <a href="tel:+263771234567">+263 77 123 4567</a> ·
+        <a href="mailto:info@epworthchamber.org">info@epworthchamber.org</a>
+      </address>
+    </section>
+
+    <section class="dev-info">
+      <p>&copy; <span id="year"></span> Epworth Chamber</p>
+      <p>WDD 231 · <span id="lastModified"></span></p>
+      <p>Built by Godfrey Tawanda Gova</p>
+    </section>
+  </footer>
+
+  <script src="scripts/footer.js" defer></script>
+  <script>
+    // Simple accessible nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
