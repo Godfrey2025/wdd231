@@ -1,8 +1,11 @@
 // Simple accessible nav toggle
 const toggle = document.querySelector('.nav-toggle');
-const nav = document.getElementById('primary-nav');
-toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('open');
-});
+const nav = document.getElementById('nav') || document.querySelector('.primary-nav') || document.getElementById('primary-nav');
+
+if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+    });
+}
