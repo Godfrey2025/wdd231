@@ -10,6 +10,15 @@
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </noscript>
+
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Mabvuku Chamber Directory">
   <meta property="og:description" content="Discover businesses in Mabvuku, Harare.">
@@ -18,7 +27,10 @@
 
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
-  <link rel="stylesheet" href="styles/larger.css">
+  <link rel="preload" href="styles/larger.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="styles/larger.css">
+  </noscript>
 
   <script src="scripts/directory.js" type="module"></script>
   <script src="scripts/footer.js" defer></script>
@@ -29,7 +41,7 @@
 <body>
   <header class="site-header">
     <div class="brand">
-      <img src="images/logo.svg" alt="Mabvuku Chamber logo">
+      <img src="images/logo.svg" alt="Mabvuku Chamber logo" width="64" height="64" decoding="async">
       <div class="brand-text">
         <h1>Mabvuku Chamber</h1>
       </div>
