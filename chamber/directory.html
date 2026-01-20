@@ -1,105 +1,101 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Epworth Chamber of Commerce — Member Directory</title>
-  <meta name="description" content="Discover businesses in Epworth, Harare. Browse the chamber directory by category, membership level, and contact details.">
+  <title>Epworth Chamber of Commerce | Directory</title>
+  <meta name="description" content="Browse verified businesses that are members of the Epworth Chamber of Commerce.">
   <meta name="author" content="Godfrey Tawanda Gova">
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
-  <!-- Open Graph (Facebook) -->
-  <meta property="og:title" content="Epworth Chamber of Commerce — Member Directory">
-  <meta property="og:description" content="Browse verified local businesses, contact details, and membership levels.">
-  <meta property="og:image" content="https://username.github.io/wdd231/chamber/images/og-directory.jpg">
-  <meta property="og:url" content="https://username.github.io/wdd231/chamber/directory.html">
-  <meta property="og:type" content="website">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Epworth Chamber Directory">
+  <meta property="og:description" content="Discover businesses in Epworth, Harare.">
+  <meta property="og:image" content="images/og-directory.svg">
+  <meta property="og:url" content="https://yourusername.github.io/wdd231/chamber/directory.html">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/small.css">
-  <link rel="stylesheet" href="styles/large.css" media="screen and (min-width: 600px)">
-  <!-- JavaScript-->
-  <script src="scripts/directory.js" type="module" defer></script>
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/directory.js" type="module"></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/navigation.js" defer></script>
 
 </head>
+
 <body>
   <header class="site-header">
     <div class="brand">
-      <img src="images/logo.svg" alt="Epworth Chamber logo" width="48" height="48">
+      <img src="images/logo.svg" alt="Epworth Chamber logo">
       <div class="brand-text">
-        <h1>Epworth Chamber of Commerce</h1>
-        <p class="tagline">Connecting local businesses with opportunity</p>
+        <h1>Epworth Chamber</h1> 
       </div>
     </div>
 
-    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-      <span class="visually-hidden">Toggle navigation</span>
-      ☰
-    </button>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open navigation menu">☰</button>
 
-    <nav id="primary-nav" class="primary-nav" aria-label="Main">
+    <nav class="primary-nav" id="nav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a aria-current="page" href="directory.html">Directory</a></li>
+        <li><a href="directory.html" aria-current="page">Directory</a></li>
         <li><a href="discover.html">Discover</a></li>
         <li><a href="join.html">Join</a></li>
-        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="main" class="directory">
-    <section class="controls" aria-label="Directory view controls">
-      <div class="view-toggle" role="group" aria-label="Layout view">
+  <main class="directory">
+    <section class="controls">
+      <div class="view-toggle">
         <button id="gridBtn" class="active" aria-pressed="true">Grid</button>
         <button id="listBtn" aria-pressed="false">List</button>
       </div>
-
-      <div class="legend">
-        <span class="badge gold" aria-label="Gold membership">Gold</span>
-        <span class="badge silver" aria-label="Silver membership">Silver</span>
-        <span class="badge member" aria-label="Member">Member</span>
-      </div>
     </section>
 
-    <section id="members" class="cards grid" aria-live="polite" aria-busy="true">
-      <!-- Cards injected by JS -->
-    </section>
+    <section id="members" class="cards grid" aria-live="polite" aria-busy="false"></section>
   </main>
 
   <footer class="site-footer">
-    <section class="contact">
-      <h2 class="visually-hidden">Contact</h2>
+    <div class="contact">
+      <strong>Contact</strong>
       <address>
-        <strong>Epworth Chamber of Commerce</strong><br>
-        12 Samora Machel Ave, Epworth, Harare<br>
-        <a href="tel:+263771234567">+263 77 123 4567</a> ·
+        Epworth Chamber of Commerce<br>
+        Epworth, Harare<br>
+        <a href="tel:+263771234567">+263 77 123 4567</a><br>
         <a href="mailto:info@epworthchamber.org">info@epworthchamber.org</a>
       </address>
-    </section>
+    </div>
 
-    <section class="dev-info">
+    <div class="social-media">
+      <strong>Follow Us</strong>
+      <ul>
+        <li><a href="https://facebook.com/epworthchamber" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://twitter.com/epworthchamber" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a href="https://instagram.com/epworthchamber" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+
+    </div>
+
+    <div class="dev-info">
       <p>&copy; <span id="year"></span> Epworth Chamber</p>
-      <p>WDD 231 · <span id="lastModified"></span></p>
-      <p>Built by Godfrey Tawanda Gova</p>
-    </section>
+      <p>WDD 231 | Godfrey Tawanda Gova</p>
+      <p>Last Modified: <span id="lastModified"></span></p>
+    </div>
   </footer>
 
-  <script src="scripts/footer.js" defer></script>
+  
   <script>
-    // Simple accessible nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('primary-nav');
-    toggle?.addEventListener('click', () => {
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('nav');
+    toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('open');
     });
   </script>
 </body>
+
 </html>

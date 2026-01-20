@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Epworth Hardware",
+        "address": "Main Road, Epworth",
+        "phone": "+263771111111",
+        "website": "https://example.com",
+        "level": 3
+    },
+    {
+        "name": "Sunrise Bakery",
+        "address": "Chiremba Road, Epworth",
+        "phone": "+263772222222",
+        "website": "https://example.com",
+        "level": 2
+    },
+    {
+        "name": "Green Fields Farm",
+        "address": "Epworth Extension",
+        "phone": "+263773333333",
+        "website": "https://example.com",
+        "level": 1
+    },
+    {
+        "name": "Epworth Pharmacy",
+        "address": "Market Centre",
+        "phone": "+263774444444",
+        "website": "https://example.com",
+        "level": 2
+    },
+    {
+        "name": "City Transport",
+        "address": "Epworth Depot",
+        "phone": "+263775555555",
+        "website": "https://example.com",
+        "level": 3
+    },
+    {
+        "name": "Bright Future School",
+        "address": "Epworth North",
+        "phone": "+263776666666",
+        "website": "https://example.com",
+        "level": 1
+    },
+    {
+        "name": "Unity Telecoms",
+        "address": "Epworth South",
+        "phone": "+263777777777",
+        "website": "https://example.com",
+        "level": 2
+    }
+]

@@ -1,0 +1,31 @@
+@media (min-width: 640px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .primary-nav {
+    display: block;
+    margin-left: auto;
+  }
+
+  .primary-nav ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .cards.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .cards.grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards.grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
