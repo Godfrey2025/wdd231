@@ -56,13 +56,14 @@
 
   <main class="directory">
     <section class="controls">
+      <h2>Member Directory</h2>
       <div class="view-toggle">
-        <button id="gridBtn" class="active" aria-pressed="true">Grid</button>
-        <button id="listBtn" aria-pressed="false">List</button>
+        <button id="gridBtn" class="active" aria-pressed="true" title="View as grid">Grid</button>
+        <button id="listBtn" aria-pressed="false" title="View as list">List</button>
       </div>
     </section>
 
-    <section id="members" class="cards grid" aria-live="polite" aria-busy="false"></section>
+    <section id="members" class="cards grid" aria-live="polite" aria-busy="false" role="main"></section>
   </main>
 
   <footer class="site-footer">
