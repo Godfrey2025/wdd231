@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mabvuku Chamber of Commerce | Home</title>
+    <meta name="description"
+        content="Welcome to the Mabvuku Chamber of Commerce. Learn about membership, events, and our local businesses.">
+    <meta name="author" content="Godfrey Tawanda Gova">
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="preload" href="styles/larger.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <meta property="og:title" content="Mabvuku Chamber Home">
+    <meta property="og:description" content="Welcome to the Mabvuku Chamber of Commerce home page.">
+    <meta property="og:image" content="images/og-lgo.webp">
+
+    <script src="scripts/home.js" type="module"></script>
+    <script src="scripts/footer.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/logo.png" alt="Mabvuku Chamber logo" width="64" height="64" decoding="async">
+            <div class="brand-text">
+                <h1>Mabvuku Chamber</h1>
+            </div>
+        </div>
+
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open navigation menu">☰</button>
+
+        <nav class="primary-nav" id="nav">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="home">
+        <section class="hero">
+            <figure>
+                <img src="images/chamber-of-commerce-building-feature.jpg" alt="Mabvuku Chamber building"
+                    loading="eager">
+                <figcaption>
+                    <h2>Welcome to the Mabvuku Chamber of Commerce</h2>
+                    <p>Connecting local businesses, supporting growth, and strengthening our community.</p>
+                    <p><a class="cta" href="join.html">Join the Chamber</a></p>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="events">
+            <h3>Upcoming Events</h3>
+            <ul>
+                <li>
+                    <strong>Monthly Business Mixer</strong> — Network with local business owners. <em>Next: Feb 12,
+                        2026</em>
+                </li>
+                <li>
+                    <strong>Small Business Workshop</strong> — Free training on digital marketing. <em>Next: Mar 3,
+                        2026</em>
+                </li>
+            </ul>
+        </section>
+
+        <section class="weather" aria-labelledby="weather-heading">
+            <h3 id="weather-heading">Local Weather</h3>
+            <div class="weather-current">
+                <p id="current-temp">-- °C</p>
+                <img id="weather-icon" src="" alt="" aria-hidden="true">
+                <p id="weather-desc">Loading...</p>
+            </div>
+            <div id="forecast" class="forecast" aria-live="polite"></div>
+        </section>
+
+        <section class="spotlights">
+            <h3>Member Spotlights</h3>
+            <div id="spotlights" class="cards grid" aria-live="polite"></div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="contact">
+            <strong>Contact</strong>
+            <address>
+                Mabvuku Chamber of Commerce<br>
+                Mabvuku, Harare<br>
+                <a href="tel:+263771234567">+263 77 123 4567</a><br>
+                <a href="mailto:info@mabvuku.org">info@mabvuku.org</a>
+            </address>
+        </div>
+
+        <div class="social-media">
+            <strong>Follow Us</strong>
+            <ul>
+                <li><a href="https://facebook.com/mabvuku" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://twitter.com/mabvuku" target="_blank" rel="noopener">Twitter</a></li>
+                <li><a href="https://instagram.com/mabvuku" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+
+        </div>
+
+        <div class="dev-info">
+            <p>&copy; <span id="year"></span> Mabvuku Chamber</p>
+            <p>WDD 231 | Godfrey Tawanda Gova</p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
