@@ -26,11 +26,11 @@ function card(m) {
 
   // Create and append image
   const img = document.createElement('img');
-  img.src = m.images1;
+  img.src = m.image1;
   img.alt = `${m.name} logo`;
   img.loading = 'lazy';
   img.decoding = 'async';
-  img.onerror = () => img.src = 'images/placeholder.png';
+  img.onerror = () => img.src = 'chamber/images/image1.webp'; // Fallback image
   el.appendChild(img);
 
   // Create content container

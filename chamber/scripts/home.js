@@ -99,9 +99,7 @@ function displaySpotlights(members) {
     picks.forEach(m => {
         const card = document.createElement('div');
         card.className = 'card spotlight';
-        const imgSrc = m.image || 'images/logo.png';
         card.innerHTML = `
-      <img src="${imgSrc}" alt="${m.name} logo">
       <h4>${m.name}</h4>
       <p>${m.address}</p>
       <p><a href="tel:${m.phone}">${m.phone}</a></p>
