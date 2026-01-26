@@ -83,10 +83,15 @@
         <section class="weather" aria-labelledby="weather-heading">
             <h3 id="weather-heading">Local Weather</h3>
             <div class="weather-current">
-                <p id="current-temp">-- °C</p>
-                <p id="weather-desc">Loading...</p>
+                <div class="weather-main">
+                    <img id="weather-icon" src="" alt="" width="64" height="64" decoding="async">
+                    <div class="weather-info">
+                        <p id="current-temp">-- °C</p>
+                        <p id="weather-desc">Loading...</p>
+                    </div>
+                </div>
             </div>
-            <div id="forecast" class="forecast" aria-live="polite"></div>
+            <div id="forecast" class="forecast" aria-live="polite" aria-label="3-day forecast"></div>
         </section>
 
         <section class="spotlights">

@@ -6,49 +6,85 @@ const weatherIconEl = document.querySelector('#weather-icon');
 const weatherDescEl = document.querySelector('#weather-desc');
 const forecastEl = document.querySelector('#forecast');
 
-// Replace YOUR_API_KEY with your OpenWeatherMap API key
+// OpenWeatherMap API configuration
 const lat = -17.8292; // Harare/Mabvuku
 const lon = 31.0522;
-const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=YOUR_API_KEY`;
+const apiKey = 'edfee396c6b58d27c8618d4427eefab7';
+const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+const forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
 async function fetchWeather() {
     try {
-        const resp = await fetch(weatherUrl);
-        if (!resp.ok) throw new Error('Weather fetch failed');
-        const data = await resp.json();
-        displayWeather(data);
+        // Fetch current weather and 5-day forecast
+        const currentResp = await fetch(currentWeatherUrl);
+        const forecastResp = await fetch(forecastWeatherUrl);
+
+        if (!currentResp.ok || !forecastResp.ok) {
+            throw new Error(`Weather API error: ${currentResp.status} / ${forecastResp.status}`);
+        }
+
+        const currentData = await currentResp.json();
+        const forecastData = await forecastResp.json();
+
+        displayWeather(currentData, forecastData);
     } catch (err) {
-        console.error(err);
+        console.error('Weather fetch error:', err);
         weatherDescEl.textContent = 'Weather data unavailable';
     }
 }
 
-function displayWeather(data) {
-    if (!data || !data.current) return;
-    currentTempEl.textContent = `${data.current.temp.toFixed(1)} °C`;
-    const icon = data.current.weather[0].icon;
-    const desc = data.current.weather[0].description;
+function displayWeather(currentData, forecastData) {
+    if (!currentData || !currentData.main) return;
+
+    // Display current weather
+    const temp = Math.round(currentData.main.temp);
+    const icon = currentData.weather[0].icon;
+    const desc = currentData.weather[0].description;
     const iconSrc = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
+    currentTempEl.textContent = `${temp}°C`;
     weatherIconEl.setAttribute('src', iconSrc);
     weatherIconEl.setAttribute('alt', desc);
-    weatherDescEl.textContent = desc;
+    weatherDescEl.textContent = desc.charAt(0).toUpperCase() + desc.slice(1);
 
-    // 3-day forecast (tomorrow -> next 3 days)
+    // Display 3-day forecast
+    if (!forecastData || !forecastData.list) return;
+
     forecastEl.innerHTML = '';
-    const days = data.daily.slice(1, 4);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Group forecasts by day (one per day at noon)
+    const dailyForecasts = {};
+    forecastData.list.forEach(f => {
+        const forecastDate = new Date(f.dt * 1000);
+        forecastDate.setHours(0, 0, 0, 0);
+        const dayKey = forecastDate.toDateString();
+
+        // Skip today, keep closest to noon for each day
+        if (forecastDate > today) {
+            if (!dailyForecasts[dayKey] || Math.abs(f.dt * 1000 - 12 * 60 * 60 * 1000) < Math.abs(dailyForecasts[dayKey].dt * 1000 - 12 * 60 * 60 * 1000)) {
+                dailyForecasts[dayKey] = f;
+            }
+        }
+    });
+
+    // Get first 3 days
+    const days = Object.values(dailyForecasts).slice(0, 3);
     days.forEach(d => {
         const day = new Date(d.dt * 1000);
-        const dayName = day.toLocaleDateString(undefined, { weekday: 'short' });
-        const temp = d.temp.day.toFixed(0);
+        const dayName = day.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+        const temp = Math.round(d.main.temp);
         const icon = d.weather[0].icon;
+        const desc = d.weather[0].description;
         const iconSrc = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
         const card = document.createElement('div');
         card.className = 'forecast-card';
         card.innerHTML = `
       <strong>${dayName}</strong>
-      <img src="${iconSrc}" alt="${d.weather[0].description}" width="48" height="48">
-      <div>${temp} °C</div>
+      <img src="${iconSrc}" alt="${desc}" width="40" height="40" decoding="async">
+      <div>${temp}°C</div>
     `;
         forecastEl.appendChild(card);
     });
@@ -87,16 +123,20 @@ function membershipLevelText(level) {
 
 function displaySpotlights(members) {
     if (!Array.isArray(members)) return;
+
+    // Filter for gold (level 3) and silver (level 2) members
     const eligible = members.filter(m => m.level >= 2);
     if (eligible.length === 0) {
-        spotlightsEl.textContent = 'No premium members available';
+        spotlightsEl.innerHTML = '<p class="error">No premium members available</p>';
         return;
     }
 
+    // Randomly select 2-3 members
     const picks = shuffle(eligible).slice(0, Math.min(3, eligible.length));
     spotlightsEl.innerHTML = '';
 
     picks.forEach(m => {
+        const levelText = m.level === 3 ? 'Gold Member' : m.level === 2 ? 'Silver Member' : 'Member';
         const card = document.createElement('div');
         card.className = 'card spotlight';
         card.innerHTML = `
@@ -104,7 +144,7 @@ function displaySpotlights(members) {
       <p>${m.address}</p>
       <p><a href="tel:${m.phone}">${m.phone}</a></p>
       <p><a href="${m.website}" target="_blank" rel="noopener">Visit website</a></p>
-      <p class="level">${membershipLevelText(m.level)}</p>
+      <p class="level">${levelText}</p>
     `;
         spotlightsEl.appendChild(card);
     });
@@ -112,6 +152,19 @@ function displaySpotlights(members) {
 
 fetchSpotlights();
 
-// Small helper: set year and last modified used by footer script
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = document.lastModified || '';
+// Set year and last modified for footer
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('year')) {
+        document.getElementById('year').textContent = new Date().getFullYear();
+    }
+    if (document.getElementById('lastModified')) {
+        document.getElementById('lastModified').textContent =
+            new Date(document.lastModified).toLocaleString('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+    }
+});
