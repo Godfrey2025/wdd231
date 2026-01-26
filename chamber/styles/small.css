@@ -355,7 +355,7 @@ section {
 }
 
 .site-footer a {
-  color: var(--brand);
+  color: #004ac6;
   text-decoration: none;
   transition: color 0.2s;
 }
