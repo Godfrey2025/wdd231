@@ -1,4 +1,3 @@
-// home.js - fetch weather and display random member spotlights
 
 // ---- Weather ----
 const currentTempEl = document.querySelector('#current-temp');
@@ -61,7 +60,6 @@ function displayWeather(currentData, forecastData) {
         forecastDate.setHours(0, 0, 0, 0);
         const dayKey = forecastDate.toDateString();
 
-        // Skip today, keep closest to noon for each day
         if (forecastDate > today) {
             if (!dailyForecasts[dayKey] || Math.abs(f.dt * 1000 - 12 * 60 * 60 * 1000) < Math.abs(dailyForecasts[dayKey].dt * 1000 - 12 * 60 * 60 * 1000)) {
                 dailyForecasts[dayKey] = f;
@@ -151,20 +149,3 @@ function displaySpotlights(members) {
 }
 
 fetchSpotlights();
-
-// Set year and last modified for footer
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('year')) {
-        document.getElementById('year').textContent = new Date().getFullYear();
-    }
-    if (document.getElementById('lastModified')) {
-        document.getElementById('lastModified').textContent =
-            new Date(document.lastModified).toLocaleString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-    }
-});
