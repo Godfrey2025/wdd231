@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mabvuku Chamber of Commerce | Home</title>
+    <title>Mabvuku Chamber of Commerce | Membership Join</title>
     <meta name="description"
-        content="Welcome to the Mabvuku Chamber of Commerce. Learn about membership, events, and our local businesses.">
+        content="Apply to join the Mabvuku Chamber of Commerce. View membership levels and benefits.">
     <meta name="author" content="Godfrey Tawanda Gova">
 
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
@@ -27,9 +27,9 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <script src="scripts/home.js" type="module"></script>
     <script src="scripts/footer.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/join.js" defer></script>
 
 </head>
 
@@ -46,106 +46,211 @@
 
         <nav class="primary-nav" id="nav">
             <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="directory.html">Directory</a></li>
                 <li><a href="discover.html">Discover</a></li>
-                <li><a href="join.html">Join</a></li>
+                <li><a href="join.html" aria-current="page">Join</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="home">
+    <main class="join-page">
+        <section class="join-header">
+            <h2>Join the Mabvuku Chamber of Commerce</h2>
+            <p>Become a member and grow your business with our community.</p>
+        </section>
 
-        <form method="get" action="thankyou.html">
-            <!-- First Name -->
-            <label>
-                First Name:
-                <input type="text" name="firstName" title="Applicant First Name" autocomplete="given-name" required>
-            </label>
+        <div class="join-container">
+            <!-- Membership Form -->
+            <section class="form-section">
+                <h3>Membership Application</h3>
+                <form method="get" action="thankyou.html" id="membershipForm">
+                    <!-- First Name -->
+                    <label for="firstName">
+                        First Name
+                        <input type="text" id="firstName" name="firstName" title="Applicant First Name"
+                            autocomplete="given-name" required>
+                    </label>
 
-            <!-- Last Name -->
-            <label>
-                Last Name:
-                <input type="text" name="lastName" title="Applicant Last Name" autocomplete="family-name" required>
-            </label>
+                    <!-- Last Name -->
+                    <label for="lastName">
+                        Last Name
+                        <input type="text" id="lastName" name="lastName" title="Applicant Last Name"
+                            autocomplete="family-name" required>
+                    </label>
 
-            <!-- Organizational Title -->
-            <label>
-                Organizational Title:
-                <input type="text" name="orgTitle" title="Organizational Title" autocomplete="organization-title"
-                    pattern="[A-Za-z\\-\\s]{7,}">
-            </label>
+                    <!-- Organizational Title -->
+                    <label for="orgTitle">
+                        Organizational Title
+                        <input type="text" id="orgTitle" name="orgTitle" title="Organizational Title"
+                            autocomplete="organization-title" pattern="[A-Za-z\-\s]{7,}"
+                            placeholder="Minimum 7 characters, letters/hyphens/spaces only">
+                    </label>
 
-            <!-- Email -->
-            <label>
-                Email:
-                <input type="email" name="email" title="Email Address" autocomplete="email"
-                    placeholder="example@domain.com" required>
-            </label>
+                    <!-- Email -->
+                    <label for="email">
+                        Email Address
+                        <input type="email" id="email" name="email" title="Email Address" autocomplete="email"
+                            placeholder="example@domain.com" required>
+                    </label>
 
-            <!-- Mobile Phone -->
-            <label>
-                Mobile Phone:
-                <input type="tel" name="mobile" title="Mobile Phone Number" autocomplete="tel" required>
-            </label>
+                    <!-- Mobile Phone -->
+                    <label for="mobile">
+                        Mobile Phone Number
+                        <input type="tel" id="mobile" name="mobile" title="Mobile Phone Number" autocomplete="tel"
+                            required>
+                    </label>
 
-            <!-- Organization Name -->
-            <label>
-                Organization Name:
-                <input type="text" name="organization" title="Business/Organization Name" autocomplete="organization"
-                    required>
-            </label>
+                    <!-- Organization Name -->
+                    <label for="organization">
+                        Business/Organization Name
+                        <input type="text" id="organization" name="organization" title="Business/Organization Name"
+                            autocomplete="organization" required>
+                    </label>
 
-            <!-- Membership Level -->
-            <label>
-                Membership Level:
-                <select name="membership" title="Membership Level" required>
-                    <option value="np">NP Membership (Non-Profit)</option>
-                    <option value="bronze">Bronze Membership</option>
-                    <option value="silver">Silver Membership</option>
-                    <option value="gold">Gold Membership</option>
-                </select>
-            </label>
+                    <!-- Membership Level -->
+                    <label for="membership">
+                        Membership Level
+                        <select id="membership" name="membership" title="Membership Level" required>
+                            <option value="">-- Select Membership Level --</option>
+                            <option value="np">NP Membership (Non-Profit - Free)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </label>
 
-            <!-- Organization Description -->
-            <label>
-                Description:
-                <textarea name="description" title="Business/Organization Description"></textarea>
-            </label>
+                    <!-- Organization Description -->
+                    <label for="description">
+                        Business/Organization Description
+                        <textarea id="description" name="description" title="Business/Organization Description"
+                            rows="4"></textarea>
+                    </label>
 
-            <!-- Timestamp -->
-            <input type="hidden" name="timestamp" id="timestamp">
+                    <!-- Timestamp -->
+                    <input type="hidden" name="timestamp" id="timestamp">
 
-            <!-- Submit -->
-            <input type="submit" value="Submit Application">
-        </form>
+                    <!-- Submit -->
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </section>
 
-        <div class="membership-cards">
-            <div class="card">
-                <h3>NP Membership</h3>
-                <a href="#npModal">Learn More</a>
-            </div>
-            <div class="card">
-                <h3>Bronze Membership</h3>
-                <a href="#bronzeModal">Learn More</a>
-            </div>
-            <div class="card">
-                <h3>Silver Membership</h3>
-                <a href="#silverModal">Learn More</a>
-            </div>
-            <div class="card">
-                <h3>Gold Membership</h3>
-                <a href="#goldModal">Learn More</a>
-            </div>
+            <!-- Membership Cards Section -->
+            <section class="membership-section">
+                <h3>Membership Levels</h3>
+                <div class="membership-cards">
+                    <!-- NP Membership Card -->
+                    <div class="membership-card" data-level="np">
+                        <div class="card-content">
+                            <h4>NP Membership</h4>
+                            <p class="card-price">Free</p>
+                            <p class="card-desc">For non-profit organizations</p>
+                            <button class="card-link" onclick="openModal('npModal')">View Benefits</button>
+                        </div>
+                    </div>
+
+                    <!-- Bronze Membership Card -->
+                    <div class="membership-card" data-level="bronze">
+                        <div class="card-content">
+                            <h4>Bronze Membership</h4>
+                            <p class="card-price">$50/month</p>
+                            <p class="card-desc">Great for growing businesses</p>
+                            <button class="card-link" onclick="openModal('bronzeModal')">View Benefits</button>
+                        </div>
+                    </div>
+
+                    <!-- Silver Membership Card -->
+                    <div class="membership-card" data-level="silver">
+                        <div class="card-content">
+                            <h4>Silver Membership</h4>
+                            <p class="card-price">$100/month</p>
+                            <p class="card-desc">Enhanced visibility and support</p>
+                            <button class="card-link" onclick="openModal('silverModal')">View Benefits</button>
+                        </div>
+                    </div>
+
+                    <!-- Gold Membership Card -->
+                    <div class="membership-card" data-level="gold">
+                        <div class="card-content">
+                            <h4>Gold Membership</h4>
+                            <p class="card-price">$200/month</p>
+                            <p class="card-desc">Premium benefits and recognition</p>
+                            <button class="card-link" onclick="openModal('goldModal')">View Benefits</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Example Modal -->
-        <dialog id="npModal">
-            <h2>NP Membership Benefits</h2>
-            <p>No fee, access to community events, networking opportunities.</p>
-            <button onclick="document.getElementById('npModal').close()">Close</button>
+        <!-- Modals for Membership Benefits -->
+
+        <!-- NP Membership Modal -->
+        <dialog id="npModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('npModal')">&times;</button>
+                <h3>NP Membership Benefits</h3>
+                <ul>
+                    <li>No membership fee</li>
+                    <li>Access to monthly networking events</li>
+                    <li>Community directory listing</li>
+                    <li>Email newsletter with local business news</li>
+                    <li>Participation in community initiatives</li>
+                </ul>
+            </div>
         </dialog>
 
+        <!-- Bronze Membership Modal -->
+        <dialog id="bronzeModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('bronzeModal')">&times;</button>
+                <h3>Bronze Membership Benefits</h3>
+                <ul>
+                    <li>All NP Member benefits</li>
+                    <li>Prominent directory listing with logo</li>
+                    <li>20% discount on event registrations</li>
+                    <li>Monthly business training sessions</li>
+                    <li>Access to member-only resources</li>
+                    <li>Social media promotion (quarterly)</li>
+                </ul>
+            </div>
+        </dialog>
+
+        <!-- Silver Membership Modal -->
+        <dialog id="silverModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('silverModal')">&times;</button>
+                <h3>Silver Membership Benefits</h3>
+                <ul>
+                    <li>All Bronze Member benefits</li>
+                    <li>Featured spotlight on home page (monthly)</li>
+                    <li>30% discount on event registrations</li>
+                    <li>Priority advertising opportunities</li>
+                    <li>Free booth space at annual chamber expo</li>
+                    <li>Monthly newsletter feature</li>
+                    <li>Exclusive networking breakfast (monthly)</li>
+                </ul>
+            </div>
+        </dialog>
+
+        <!-- Gold Membership Modal -->
+        <dialog id="goldModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('goldModal')">&times;</button>
+                <h3>Gold Membership Benefits</h3>
+                <ul>
+                    <li>All Silver Member benefits</li>
+                    <li>Premium featured spotlight on home page (weekly)</li>
+                    <li>50% discount on all event registrations</li>
+                    <li>Premium advertising placement</li>
+                    <li>Free premium booth space at annual expo</li>
+                    <li>Weekly newsletter feature</li>
+                    <li>Exclusive VIP networking events (bi-weekly)</li>
+                    <li>Dedicated chamber ambassador support</li>
+                    <li>Customized sponsorship opportunities</li>
+                    <li>Logo on all chamber materials</li>
+                </ul>
+            </div>
+        </dialog>
 
     </main>
 

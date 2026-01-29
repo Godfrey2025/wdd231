@@ -1,30 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Thank You</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mabvuku Chamber of Commerce | Thank You</title>
+    <meta name="description"
+        content="Thank you for applying to join the Mabvuku Chamber of Commerce. Your application has been received.">
+    <meta name="author" content="Godfrey Tawanda Gova">
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <meta property="og:title" content="Mabvuku Chamber of Commerce | Thank You">
+    <meta property="og:description" content="Thank you for applying to join the Mabvuku Chamber of Commerce.">
+    <meta property="og:url" content="https://github.com/godfrey2025/wdd231">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/godfrey2025/wdd231/main/chamber/images/building.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="scripts/footer.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
 
 </head>
 
 <body>
-    <header>
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/building.png" alt="Mabvuku Chamber logo" width="64" height="64" decoding="async">
+            <div class="brand-text">
+                <h1>Mabvuku Chamber</h1>
+            </div>
+        </div>
 
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open navigation menu">☰</button>
+
+        <nav class="primary-nav" id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <h1>Thank You for Joining!</h1>
-        <p>We appreciate your application. Here are your details:</p>
 
-        <ul>
-            <li>First Name: <span id="firstName"></span></li>
-            <li>Last Name: <span id="lastName"></span></li>
-            <li>Email: <span id="email"></span></li>
-            <li>Mobile: <span id="mobile"></span></li>
-            <li>Organization: <span id="organization"></span></li>
-            <li>Timestamp: <span id="timestamp"></span></li>
-        </ul>
+    <main class="thankyou-page">
+        <section class="thankyou-header">
+            <h2>Application Received!</h2>
+            <p>Thank you for your interest in joining the Mabvuku Chamber of Commerce.</p>
+        </section>
+
+        <div class="thankyou-content">
+            <div class="summary-box">
+                <h3>Application Summary</h3>
+                <div class="summary-item">
+                    <span class="summary-label">First Name:</span>
+                    <span class="summary-value" id="displayFirstName">—</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Last Name:</span>
+                    <span class="summary-value" id="displayLastName">—</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Email:</span>
+                    <span class="summary-value" id="displayEmail">—</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Mobile:</span>
+                    <span class="summary-value" id="displayMobile">—</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Organization:</span>
+                    <span class="summary-value" id="displayOrganization">—</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Submission Time:</span>
+                    <span class="summary-value" id="displayTimestamp">—</span>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #555; margin: 2rem 0;">
+                We have received your membership application. Our team will review your information and
+                get in touch with you shortly to complete the membership process.
+            </p>
+
+            <div class="thankyou-actions">
+                <a href="index.html">Return to Home</a>
+                <a href="join.html">Submit Another Application</a>
+            </div>
+        </div>
     </main>
+
     <footer class="site-footer">
         <div class="contact">
             <strong>Contact</strong>
@@ -51,18 +127,26 @@
             <p>WDD 231 | Godfrey Tawanda Gova</p>
             <p>Last Modified: <span id="lastModified"></span></p>
         </div>
-
     </footer>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        document.getElementById("firstName").textContent = params.get("firstName");
-        document.getElementById("lastName").textContent = params.get("lastName");
-        document.getElementById("email").textContent = params.get("email");
-        document.getElementById("mobile").textContent = params.get("mobile");
-        document.getElementById("organization").textContent = params.get("organization");
-        document.getElementById("timestamp").textContent = params.get("timestamp");
-    </script>
+</body>
+
+</html>
+<p>WDD 231 | Godfrey Tawanda Gova</p>
+<p>Last Modified: <span id="lastModified"></span></p>
+</div>
+
+</footer>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("firstName").textContent = params.get("firstName");
+    document.getElementById("lastName").textContent = params.get("lastName");
+    document.getElementById("email").textContent = params.get("email");
+    document.getElementById("mobile").textContent = params.get("mobile");
+    document.getElementById("organization").textContent = params.get("organization");
+    document.getElementById("timestamp").textContent = params.get("timestamp");
+</script>
 </body>
 
 </html>

@@ -186,3 +186,54 @@
     border: 2px solid white;
   }
 }
+
+/* Join Page Responsive Styles */
+@media (min-width: 640px) {
+  .join-container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .form-section {
+    flex: 1;
+  }
+
+  .membership-section {
+    flex: 1;
+    order: 2;
+  }
+
+  .membership-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .join-container {
+    flex-direction: row;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .form-section {
+    flex: 1;
+    order: 1;
+  }
+
+  .membership-section {
+    flex: 0 0 280px;
+    order: 2;
+  }
+
+  .membership-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    max-width: 500px;
+  }
+
+  .summary-item {
+    grid-template-columns: 180px 1fr;
+  }
+}
