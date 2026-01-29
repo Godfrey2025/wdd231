@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Thank You for Joining!</h1>
+        <p>We appreciate your application. Here are your details:</p>
+
+        <ul>
+            <li>First Name: <span id="firstName"></span></li>
+            <li>Last Name: <span id="lastName"></span></li>
+            <li>Email: <span id="email"></span></li>
+            <li>Mobile: <span id="mobile"></span></li>
+            <li>Organization: <span id="organization"></span></li>
+            <li>Timestamp: <span id="timestamp"></span></li>
+        </ul>
+    </main>
+    <footer class="site-footer">
+        <div class="contact">
+            <strong>Contact</strong>
+            <address>
+                Mabvuku Chamber of Commerce<br>
+                Mabvuku, Harare<br>
+                <a href="tel:+263771234567">+263 77 123 4567</a><br>
+                <a href="mailto:info@mabvuku.org">info@mabvuku.org</a>
+            </address>
+        </div>
+
+        <div class="social-media">
+            <strong>Follow Us</strong>
+            <ul>
+                <li><a href="https://facebook.com/mabvuku" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://twitter.com/mabvuku" target="_blank" rel="noopener">Twitter</a></li>
+                <li><a href="https://instagram.com/mabvuku" target="_blank" rel="noopener">Instagram</a></li>
+            </ul>
+
+        </div>
+
+        <div class="dev-info">
+            <p>&copy; <span id="year"></span> Mabvuku Chamber</p>
+            <p>WDD 231 | Godfrey Tawanda Gova</p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("firstName").textContent = params.get("firstName");
+        document.getElementById("lastName").textContent = params.get("lastName");
+        document.getElementById("email").textContent = params.get("email");
+        document.getElementById("mobile").textContent = params.get("mobile");
+        document.getElementById("organization").textContent = params.get("organization");
+        document.getElementById("timestamp").textContent = params.get("timestamp");
+    </script>
+</body>
+
+</html>

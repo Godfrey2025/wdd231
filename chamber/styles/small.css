@@ -375,3 +375,32 @@ section {
   display: flex;
   justify-content: center;
 }
+
+.membership-cards .card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.membership-cards .card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.membership-cards .card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.membership-cards .card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.membership-cards .card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
