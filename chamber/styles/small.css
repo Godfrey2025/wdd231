@@ -411,6 +411,7 @@ section {
 }
 
 .join-header {
+  background-color: var(--brand);
   background: linear-gradient(135deg, var(--brand) 0%, #0055cc 100%);
   color: white;
   padding: 2rem 1rem;
@@ -676,7 +677,7 @@ section {
   border: none;
   font-size: 1.75rem;
   cursor: pointer;
-  color: #999;
+  color: #666;
   transition: color 0.2s;
   width: 32px;
   height: 32px;
