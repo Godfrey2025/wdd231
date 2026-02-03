@@ -25,6 +25,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Attach modal open buttons (data-modal="modalId")
+    const modalOpenButtons = document.querySelectorAll('[data-modal]');
+    modalOpenButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const modalId = this.getAttribute('data-modal');
+            if (modalId) openModal(modalId);
+        });
+    });
+
+    // Attach modal close buttons (data-close)
+    const modalCloseButtons = document.querySelectorAll('[data-close]');
+    modalCloseButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const dlg = this.closest('dialog');
+            if (dlg) dlg.close();
+            else {
+                const modalId = this.getAttribute('data-close');
+                if (modalId) closeModal(modalId);
+            }
+        });
+    });
+
     // Set timestamp when page loads
     setTimestamp();
 });
