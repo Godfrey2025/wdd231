@@ -1,0 +1,103 @@
+/* Discover page layout using grid-template-areas */
+.discover-hero {
+    padding: 1rem;
+    background: linear-gradient(180deg, #f6f8fa, #fff);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.discover-container {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Small: single column layout */
+.discover-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "item1"
+        "item2"
+        "item3"
+        "item4"
+        "item5"
+        "item6"
+        "item7"
+        "item8";
+    gap: 1rem;
+}
+
+.discover-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+.discover-card figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.discover-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.visit-message {
+    background: #fff7cc;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+/* Medium screens: 2-column layout with named areas */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .discover-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "item1 item2"
+            "item3 item4"
+            "item5 item6"
+            "item7 item8";
+    }
+}
+
+/* Large screens: create an asymmetric layout using named areas */
+@media (min-width: 1025px) {
+    .discover-container {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: "hero grid";
+        align-items: start;
+    }
+
+    .discover-hero {
+        grid-area: hero;
+    }
+
+    .discover-grid {
+        grid-area: grid;
+    }
+
+    .discover-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "item1 item2 item3"
+            "item4 item5 item6"
+            "item7 item8 item8";
+        gap: 1rem;
+    }
+
+    /* Hover effects only on non-mobile (large) */
+    .discover-card figure img {
+        transition: transform 300ms ease, filter 300ms ease;
+        will-change: transform, filter;
+    }
+
+    .discover-card:hover figure img {
+        transform: scale(1.04) rotate(-0.5deg);
+        filter: saturate(1.05) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+}

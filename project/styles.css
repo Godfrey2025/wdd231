@@ -1,0 +1,19 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F5DEB3;
+  color: #333;
+}
+
+h1, h2 {
+  font-family: 'Merriweather', serif;
+  color: #8B0000;
+}
+
+section {
+  margin: 20px 0;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
