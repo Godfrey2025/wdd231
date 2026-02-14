@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zimbabwe Recipes | Traditional Zimbabwean Cuisine</title>
-    <meta name="description" content="A project showcasing authentic traditional recipes from Zimbabwe.">
+    <title>Recipes | Culinary Creativity-Fusion Recipes</title>
+    <meta name="description"
+        content="Explore our collection of innovative fusion recipes that blend culinary traditions from around the world.">
     <meta name="author" content="Godfrey Tawanda Gova">
 
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
@@ -18,26 +19,23 @@
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
 
-    <meta property="og:title" content="Culinary Creativity | Home">
-    <meta property="og:description" content="Welcome to the Culinary Creativity home page.">
+    <meta property="og:title" content="Culinary Creativity | Recipes">
+    <meta property="og:description" content="Browse our fusion recipes collection.">
     <meta property="og:url" content="https://github.com/godfrey2025/wdd231">
     <meta property="og:image"
         content="https://raw.githubusercontent.com/godfrey2025/wdd231/main/chamber/images/building.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
-    <script src="scripts/home.js" type="module"></script>
+    <script src="scripts/recipes.js" type="module"></script>
     <script src="scripts/footer.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
-
 </head>
 
 <body>
     <header class="site-header">
         <div class="brand">
-            <img src="images/picture1.webp" alt="Zimbabwe Recipes logo" width="64" height="64" decoding="async">
+            <img src="images/building.png" alt="Culinary Creativity logo" width="64" height="64" decoding="async">
             <div class="brand-text">
-                <h1>Zimbabwe Recipes</h1>
+                <h1>Culinary Creativity</h1>
             </div>
         </div>
 
@@ -45,29 +43,41 @@
 
         <nav class="primary-nav" id="nav">
             <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html" aria-current="page">Recipes</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="site-plan.html">Site Plan </a></li>
+                <li><a href="site-plan.html">Site Plan</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="home">
-        <section class="hero">
-            <figure>
-                <img src="images/picture.png" alt="A fusion dish representing culinary creativity" loading="eager">
-            </figure>
-            <div class="hero-text">
-                <h2>Welcome to Culinary Creativity</h2>
-                <p>Discover innovative fusion recipes that blend flavors from around the world.</p>
-                <p><a class="cta" href="recipes.html">Explore Recipes</a></p>
-            </div>
+    <main class="recipes-page">
+        <section class="page-header">
+            <h1>Our Fusion Recipes</h1>
+            <p>Discover innovative recipes that blend culinary traditions from around the world</p>
         </section>
 
-        <section class="featured-recipes">
-            <h2>Featured Recipes</h2>
+        <section class="filters">
+            <div class="filter-group">
+                <label for="difficultyFilter">Filter by Difficulty:</label>
+                <select id="difficultyFilter">
+                    <option value="">All Levels</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="cuisineFilter">Filter by Cuisine:</label>
+                <input type="text" id="cuisineFilter" placeholder="Search cuisine..." />
+            </div>
+
+            <button id="resetFilters" class="btn-reset">Reset Filters</button>
+        </section>
+
+        <section class="recipes-container">
             <div class="recipe-list">
                 <!-- Recipe cards will be dynamically inserted here -->
             </div>
@@ -93,13 +103,14 @@
                 <li><a href="https://twitter.com/mabvuku" target="_blank" rel="noopener">Twitter</a></li>
                 <li><a href="https://instagram.com/mabvuku" target="_blank" rel="noopener">Instagram</a></li>
             </ul>
-
         </div>
 
         <div class="dev-info">
             <p>&copy; <span id="year"></span> Project | Culinary Creativity</p>
             <p>WDD 231 Project | Godfrey Tawanda Gova</p>
             <p>Last Modified: <span id="lastModified"></span></p>
+            <p><a href="attributions.html">Attributions</a> | <a href="https://youtu.be/example" target="_blank">Video
+                    Demo</a></p>
         </div>
     </footer>
 
