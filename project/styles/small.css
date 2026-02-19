@@ -239,3 +239,30 @@ main.home {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* dialog support for small screens */
+dialog.modal {
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+dialog.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog.modal[open] {
+    display: block;
+}
+
+/* Basic modal-content styles for small screens */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}

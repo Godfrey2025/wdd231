@@ -109,12 +109,12 @@ function attachRecipeEventListeners(recipes) {
     loadFavoriteStates();
 }
 
-// Show recipe details modal
+// Show recipe details modal using a semantic <dialog> element
 function showRecipeModal(recipe) {
     let modal = document.getElementById('recipeModal');
 
     if (!modal) {
-        modal = document.createElement('div');
+        modal = document.createElement('dialog');
         modal.id = 'recipeModal';
         modal.className = 'modal';
         document.body.appendChild(modal);
@@ -123,36 +123,51 @@ function showRecipeModal(recipe) {
     const ingredientsList = recipe.ingredients.map(ing => `<li>${ing}</li>`).join('');
 
     modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>${recipe.name}</h2>
-      <img src="images/${recipe.image}" alt="${recipe.name}" class="modal-image">
-      <div class="modal-body">
-        <p><strong>Cuisine:</strong> ${recipe.cuisine}</p>
-        <p><strong>Description:</strong> ${recipe.description}</p>
-        <p><strong>Difficulty:</strong> ${recipe.difficulty}</p>
-        <p><strong>Rating:</strong> ⭐ ${recipe.rating}/5</p>
-        <p><strong>Prep Time:</strong> ${recipe.prepTime}</p>
-        <p><strong>Cook Time:</strong> ${recipe.cookTime}</p>
-        <p><strong>Servings:</strong> ${recipe.servings}</p>
-        <h3>Ingredients:</h3>
-        <ul>
-          ${ingredientsList}
-        </ul>
-      </div>
-    </div>
-  `;
+        <div class="modal-content">
+            <button class="close" aria-label="Close dialog">&times;</button>
+            <h2>${recipe.name}</h2>
+            <img src="images/${recipe.image}" alt="${recipe.name}" class="modal-image">
+            <div class="modal-body">
+                <p><strong>Cuisine:</strong> ${recipe.cuisine}</p>
+                <p><strong>Description:</strong> ${recipe.description}</p>
+                <p><strong>Difficulty:</strong> ${recipe.difficulty}</p>
+                <p><strong>Rating:</strong> ⭐ ${recipe.rating}/5</p>
+                <p><strong>Prep Time:</strong> ${recipe.prepTime}</p>
+                <p><strong>Cook Time:</strong> ${recipe.cookTime}</p>
+                <p><strong>Servings:</strong> ${recipe.servings}</p>
+                <h3>Ingredients:</h3>
+                <ul>
+                    ${ingredientsList}
+                </ul>
+            </div>
+        </div>
+    `;
 
-    modal.style.display = 'block';
+    if (typeof modal.showModal === 'function') {
+        modal.showModal();
+    } else {
+        modal.style.display = 'block';
+    }
 
     const closeBtn = modal.querySelector('.close');
-    closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            if (typeof modal.close === 'function') modal.close();
+            else modal.style.display = 'none';
+        });
+    }
+
+    modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            if (typeof modal.close === 'function') modal.close();
+            else modal.style.display = 'none';
+        }
     });
 
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+    modal.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            if (typeof modal.close === 'function') modal.close();
+            else modal.style.display = 'none';
         }
     });
 }

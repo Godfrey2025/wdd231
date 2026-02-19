@@ -166,6 +166,21 @@
         animation: fadeIn 0.3s ease;
     }
 
+    /* Support semantic <dialog> element when used with .modal class */
+    dialog.modal {
+        border: none;
+        padding: 0;
+        background: transparent;
+    }
+
+    dialog.modal::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    dialog.modal[open] {
+        display: block;
+    }
+
     @keyframes fadeIn {
         from {
             opacity: 0;

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zimbabwe Recipes | Traditional Zimbabwean Cuisine</title>
+    <meta name="description" content="A project showcasing authentic traditional recipes from Zimbabwe.">
+    <meta name="author" content="Godfrey Tawanda Gova">
+
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <meta property="og:title" content="Culinary Creativity | Home">
+    <meta property="og:description" content="Welcome to the Culinary Creativity home page.">
+    <meta property="og:url" content="https://github.com/godfrey2025/wdd231">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/godfrey2025/wdd231/main/chamber/images/building.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="scripts/home.js" type="module"></script>
+    <script src="scripts/footer.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/picture1.webp" alt="Zimbabwe Recipes logo" width="64" height="64" decoding="async">
+            <div class="brand-text">
+                <h1>Zimbabwe Recipes</h1>
+            </div>
+        </div>
+
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Open navigation menu">☰</button>
+
+        <nav class="primary-nav" id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="join-page">
+        <section class="join-header">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to get in touch? Fill out the form below and we'll get back to you soon.</p>
+        </section>
+
+        <div class="contact-content">
+            <!-- Membership Form -->
+            <section class="form-section">
+                <h3>Send Us a Message</h3>
+                <form method="get" action="thankyou.html" id="membershipForm">
+                    <!-- First Name -->
+                    <label for="firstName">
+                        First Name
+                        <input type="text" id="firstName" name="firstName" title="Applicant First Name"
+                            autocomplete="given-name" required>
+                    </label>
+
+                    <!-- Last Name -->
+                    <label for="lastName">
+                        Last Name
+                        <input type="text" id="lastName" name="lastName" title="Applicant Last Name"
+                            autocomplete="family-name" required>
+                    </label>
+
+                    <!-- Email -->
+                    <label for="email">
+                        Email Address
+                        <input type="email" id="email" name="email" title="Email Address" autocomplete="email"
+                            placeholder="example@domain.com" required>
+                    </label>
+
+                    <!-- Mobile Phone -->
+                    <label for="mobile">
+                        Mobile Phone Number
+                        <input type="tel" id="mobile" name="mobile" title="Mobile Phone Number" autocomplete="tel"
+                            required>
+                    </label>
+
+                    <!-- Organization Name -->
+                    <label for="organization">
+                        Business/Organization Name
+                        <input type="text" id="organization" name="organization" title="Business/Organization Name"
+                            autocomplete="organization">
+                    </label>
+
+                    <!-- Message -->
+                    <label for="message">
+                        Message
+                        <textarea id="message" name="message" title="Your Message" rows="4"
+                            placeholder="Write your message here..."></textarea>
+                    </label>
+
+                    <!-- Timestamp -->
+                    <input type="hidden" name="timestamp" id="timestamp">
+
+                    <!-- Submit -->
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="contact">
+            <strong>Contact</strong>
+            <address>
+                Zimbabwe Recipes<br>
+                Harare, Zimbabwe<br>
+                <a href="tel:+263771234567">+263 77 123 4567</a><br>
+                <a href="mailto:info@example.com">info@example.com</a>
+            </address>
+        </div>
+
+        <div class="dev-info">
+            <p>&copy; <span id="year"></span> Zimbabwe Recipes</p>
+            <p>WDD 231 | Godfrey Tawanda Gova</p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+
+    <script>
+        // set timestamp before submit
+        document.addEventListener('DOMContentLoaded', function () {
+            const ts = new Date().toISOString();
+            const tsInput = document.getElementById('timestamp');
+            if (tsInput) tsInput.value = ts;
+        });
+    </script>
+
+</body>
+
+</html>

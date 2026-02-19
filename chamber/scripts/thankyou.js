@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'email': 'displayEmail',
         'mobile': 'displayMobile',
         'organization': 'displayOrganization',
+        'message': 'displayMessage',
         'timestamp': 'displayTimestamp'
     };
 
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Check if any required field is missing
-    const requiredFields = ['firstName', 'lastName', 'email', 'mobile', 'organization', 'timestamp'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'mobile', 'organization', 'message', 'timestamp'];
     const hasAllFields = requiredFields.every(field => params.has(field));
 
     if (!hasAllFields) {
